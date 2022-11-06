@@ -2,6 +2,7 @@ package com.mycompany.pokeapilibrary;
 
 import com.mycompany.pokeapilibrary.pokemon.Pokemon;
 import com.google.gson.Gson;
+import com.mycompany.pokeapilibrary.pokemon.Move;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -101,6 +102,25 @@ public class Request {
         Pokemon pokemon = searchPokemon(x);
         
         return pokemon;
+    }
+    
+    public String moveAsJson(String searchFor) {
+        String address = Constants.getApiAddressForMove() + searchFor;
+        String response = search(address);
+        
+        //System.out.println("JSON: ");
+        //System.out.println(response);   
+        
+        return response;        
+    }
+    
+    public Move searchMove(String searchFor) {
+        String response = moveAsJson(searchFor);
+               
+        Gson gson = new Gson();
+
+        Move move = gson.fromJson(response, Move.class);
+        return move;         
     }
     
     //this method was created to enable testing using a mock Random

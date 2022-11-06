@@ -1,5 +1,6 @@
 package com.mycompany.pokeapilibrary;
 
+import com.mycompany.pokeapilibrary.pokemon.Move;
 import com.mycompany.pokeapilibrary.pokemon.Pokemon;
 
 public class PokeApiLibrary {
@@ -20,5 +21,8 @@ public class PokeApiLibrary {
         
         int no = request.noOfPokemon();
         System.out.println(no);
+        
+        Move move = request.searchMove("surf");
+        System.out.println(move.learnedByPokemon());
     }
 }
