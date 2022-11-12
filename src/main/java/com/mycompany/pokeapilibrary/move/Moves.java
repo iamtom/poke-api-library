@@ -44,14 +44,10 @@ public class Moves {
     }
     
     public void nextPage() {
-        //Moves nextPage = newPage(this.next);
-        //return nextPage; 
         this.newPage(this.next);
     }
 
     public void previousPage() {
-        //Moves previousPage = newPage(this.previous);
-        //return previousPage;    
         this.newPage(this.previous);
     }
 

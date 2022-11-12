@@ -61,7 +61,7 @@ public class Request {
         return response;
     }
     
-    public Pokemon searchPokemon (String searchFor) {
+    public Pokemon searchPokemon(String searchFor) {
         //searchFor must either be Pokemon name or number
         String response = pokemonAsJson(searchFor);
                
@@ -71,15 +71,8 @@ public class Request {
         return pokemon;        
     }
     
-    public Pokemon searchPokemon (int id) {
-        //searchFor must either be Pokemon name or number
-        //Try: Pokemon pokemon = searchPokemon(String.valueOf(id));
-        String searchFor = String.valueOf(id);
-        String response = pokemonAsJson(searchFor);
-               
-        Gson gson = new Gson();
-
-        Pokemon pokemon = gson.fromJson(response, Pokemon.class);
+    public Pokemon searchPokemon(int id) {
+        Pokemon pokemon = searchPokemon(String.valueOf(id));
         return pokemon;        
     }
     
