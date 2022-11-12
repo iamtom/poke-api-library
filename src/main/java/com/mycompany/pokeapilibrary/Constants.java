@@ -17,7 +17,8 @@ public class Constants {
     public static String getApiAddressForPokemonSpecies() {
         return API_ADDRESS_FOR_POKEMON_SPECIES;
     }
-
+    
+    
     static String getApiAddressForMove() {
         return API_ADDRESS_FOR_MOVE;
     }

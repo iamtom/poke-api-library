@@ -1,5 +1,4 @@
-
-package com.mycompany.pokeapilibrary.pokemon;
+package com.mycompany.pokeapilibrary;
 
 public class SimpleInfo {
     private String name;

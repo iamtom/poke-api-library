@@ -2,7 +2,8 @@ package com.mycompany.pokeapilibrary;
 
 import com.mycompany.pokeapilibrary.pokemon.Pokemon;
 import com.google.gson.Gson;
-import com.mycompany.pokeapilibrary.pokemon.Move;
+import com.mycompany.pokeapilibrary.move.Move;
+import com.mycompany.pokeapilibrary.move.Moves;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -21,7 +22,7 @@ public class Request {
         this.random = new Random();
     }
     
-    private String search(String address) {
+    public String search(String address) {
         String jsonString = null;
         //Pokemon names must be lower case or we get a 404
         //To lower case here rather than in all other search methods
@@ -72,6 +73,7 @@ public class Request {
     
     public Pokemon searchPokemon (int id) {
         //searchFor must either be Pokemon name or number
+        //Try: Pokemon pokemon = searchPokemon(String.valueOf(id));
         String searchFor = String.valueOf(id);
         String response = pokemonAsJson(searchFor);
                
@@ -121,6 +123,22 @@ public class Request {
 
         Move move = gson.fromJson(response, Move.class);
         return move;         
+    }
+    
+    public String allMovesAsJson() {
+        String address = Constants.getApiAddressForMove();
+        String response = search(address);
+        
+        return response;
+    }
+    
+    public Moves allMoves() {
+        String response = allMovesAsJson();
+        
+        Gson gson = new Gson();
+        Moves moves = gson.fromJson(response, Moves.class);
+        
+        return moves;
     }
     
     //this method was created to enable testing using a mock Random
