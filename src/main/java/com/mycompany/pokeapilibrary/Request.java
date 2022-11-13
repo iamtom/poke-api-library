@@ -118,19 +118,24 @@ public class Request {
         return move;         
     }
     
-    public String allMovesAsJson() {
-        String address = Constants.getApiAddressForMove();
+    public String allMovesAsJson(int offset, int limit) {
+        String address = "https://pokeapi.co/api/v2/move?offset=" + offset + "&limit=" + limit;
         String response = search(address);
         
         return response;
     }
     
-    public Moves allMoves() {
-        String response = allMovesAsJson();
+    public Moves allMoves(int offset, int limit) {
+        String response = allMovesAsJson(offset, limit);
         
         Gson gson = new Gson();
         Moves moves = gson.fromJson(response, Moves.class);
         
+        return moves;
+    }
+    
+    public Moves allMoves() {
+        Moves moves = allMoves(0, 20);
         return moves;
     }
     
