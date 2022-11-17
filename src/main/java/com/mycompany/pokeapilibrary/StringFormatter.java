@@ -10,10 +10,12 @@ public class StringFormatter {
         
         //capitalise first letter of each string
         for (int i = 0; i < array.length; i++) {
-            String firstLetter = array[i].substring(0, 1);
-            firstLetter = firstLetter.toUpperCase();
-            String restOfWord = array[i].substring(1);
-            array[i] = firstLetter.concat(restOfWord);            
+            if(!array[i].isBlank()) {
+                String firstLetter = array[i].substring(0, 1);
+                firstLetter = firstLetter.toUpperCase();
+                String restOfWord = array[i].substring(1);
+                array[i] = firstLetter.concat(restOfWord);     
+            }
         }
         
         result = String.join(" ", array);
