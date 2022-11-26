@@ -8,7 +8,7 @@ import java.util.ArrayList;
 //https://pokeapi.co/api/v2/move/ this returns all moves plus some additional info
 //results contains name and url of each move
 
-public class Moves {
+public class PagesOfMoves {
     private int count;
     private String next;
     private String previous;
@@ -35,7 +35,7 @@ public class Moves {
         String response = request.search(page);
         Gson gson = new Gson();
         
-        Moves newPage = gson.fromJson(response, Moves.class);
+        PagesOfMoves newPage = gson.fromJson(response, PagesOfMoves.class);
         
         this.count = newPage.getCount();
         this.next = newPage.getNextURL();
