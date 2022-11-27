@@ -1,14 +1,16 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
+import com.mycompany.pokeapilibrary.SimpleInfo;
+
 public class HeldItemVersionDetails {
     private String rarity;
-    private VersionSimple version;
+    private SimpleInfo version;
 
     public String getRarity() {
         return rarity;
     }
 
-    public VersionSimple getVersion() {
+    public SimpleInfo getVersion() {
         return version;
     }
 

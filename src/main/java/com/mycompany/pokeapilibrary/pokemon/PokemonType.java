@@ -1,14 +1,16 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
+import com.mycompany.pokeapilibrary.SimpleInfo;
+
 public class PokemonType {
    private int slot;
-   private TypeSimple type;
+   private SimpleInfo type;
 
     public int getSlot() {
         return slot;
     }
 
-    public TypeSimple getType() {
+    public SimpleInfo getType() {
         return type;
     }
 

@@ -1,12 +1,13 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
 import com.google.gson.annotations.SerializedName;
+import com.mycompany.pokeapilibrary.SimpleInfo;
 
 public class PokemonStat {
     @SerializedName("base_stat")
     private int baseStat;
     private int effort;
-    private StatSimple stat;
+    private SimpleInfo stat;
 
     public int getBaseStat() {
         return baseStat;
@@ -16,7 +17,7 @@ public class PokemonStat {
         return effort;
     }
 
-    public StatSimple getStat() {
+    public SimpleInfo getStat() {
         return stat;
     }
 

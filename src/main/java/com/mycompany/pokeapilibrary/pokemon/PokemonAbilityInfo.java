@@ -1,14 +1,15 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
 import com.google.gson.annotations.SerializedName;
+import com.mycompany.pokeapilibrary.SimpleInfo;
 
 public class PokemonAbilityInfo {
-    private AbilitySimple ability;
+    private SimpleInfo ability;
     @SerializedName("is_hidden")
     private Boolean isHidden;
     private Double slot;
 
-    public AbilitySimple getAbilitySimple() {
+    public SimpleInfo getAbilitySimple() {
         return ability;
     }
 

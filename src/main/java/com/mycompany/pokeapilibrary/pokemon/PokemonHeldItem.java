@@ -1,14 +1,15 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
 import com.google.gson.annotations.SerializedName;
+import com.mycompany.pokeapilibrary.SimpleInfo;
 import java.util.ArrayList;
 
 public class PokemonHeldItem {
-    private ItemSimple item;
+    private SimpleInfo item;
     @SerializedName("version_details")
     private ArrayList<HeldItemVersionDetails> versionDetails;
 
-    public ItemSimple getItem() {
+    public SimpleInfo getItem() {
         return item;
     }
 

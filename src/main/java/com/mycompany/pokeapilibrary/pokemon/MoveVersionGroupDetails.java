@@ -1,26 +1,27 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
 import com.google.gson.annotations.SerializedName;
+import com.mycompany.pokeapilibrary.SimpleInfo;
 
 public class MoveVersionGroupDetails {
     @SerializedName("level_learned_at")
     private int levelLearnedAt;
     
     @SerializedName("move_learn_method")
-    private MoveLearnMethod moveLearnMethod;
+    private SimpleInfo moveLearnMethod;
     
     @SerializedName("version_group")
-    private VersionGroup versionGroup;
+    private SimpleInfo versionGroup;
 
     public int getLevelLearnedAt() {
         return levelLearnedAt;
     }
 
-    public MoveLearnMethod getMoveLearnMethod() {
+    public SimpleInfo getMoveLearnMethod() {
         return moveLearnMethod;
     }
 
-    public VersionGroup getVersionGroup() {
+    public SimpleInfo getVersionGroup() {
         return versionGroup;
     }
 

@@ -1,12 +1,13 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
 import com.google.gson.annotations.SerializedName;
+import com.mycompany.pokeapilibrary.SimpleInfo;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class PokemonMove {
     @SerializedName("move")
-    private MoveSimple moveInfo;
+    private SimpleInfo moveInfo;
     
     @SerializedName("version_group_details")
     private ArrayList<MoveVersionGroupDetails> versionGroupDetails;
@@ -17,7 +18,7 @@ public class PokemonMove {
         this.random = new Random();
     }
 
-    public MoveSimple getMoveInfo() {
+    public SimpleInfo getMoveInfo() {
         return moveInfo;
     }
 

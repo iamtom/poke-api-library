@@ -1,6 +1,7 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
 import com.google.gson.annotations.SerializedName;
+import com.mycompany.pokeapilibrary.SimpleInfo;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,7 +11,7 @@ public class Pokemon {
     @SerializedName("base_experience")
     private Double baseExperience;
     
-    private ArrayList<PokemonForm> forms;
+    private ArrayList<SimpleInfo> forms;
     
     @SerializedName("game_indices")
     private ArrayList<PokemonGameIndex> gameIndices;
@@ -35,7 +36,7 @@ public class Pokemon {
     @SerializedName("past_types")
     private ArrayList<PastType> pastTypes;
     
-    private Species species;
+    private SimpleInfo species;
     private Object sprites; //TO DO - create proper Sprites object
     private ArrayList<PokemonStat> stats;
     private ArrayList<PokemonType> types;
@@ -106,7 +107,7 @@ public class Pokemon {
         return baseExperience;
     }
 
-    public ArrayList<PokemonForm> getForms() {
+    public ArrayList<SimpleInfo> getForms() {
         return forms;
     }
 
@@ -150,7 +151,7 @@ public class Pokemon {
         return pastTypes;
     }
 
-    public Species getSpecies() {
+    public SimpleInfo getSpecies() {
         return species;
     }
 
