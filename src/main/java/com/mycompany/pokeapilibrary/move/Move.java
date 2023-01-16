@@ -13,5 +13,8 @@ public class Move {
     public ArrayList<SimpleInfo> learnedByPokemon() {
         return learnedByPokemon;
     }
-    
+
+    public void setLearnedByPokemon(ArrayList<SimpleInfo> learnedByPokemon) {
+        this.learnedByPokemon = learnedByPokemon;
+    }   
 }
