@@ -17,4 +17,9 @@ public class Move {
     public void setLearnedByPokemon(ArrayList<SimpleInfo> learnedByPokemon) {
         this.learnedByPokemon = learnedByPokemon;
     }   
+
+    @Override
+    public String toString() {
+        return "Move{" + "learnedByPokemon=" + learnedByPokemon + '}';
+    }
 }
