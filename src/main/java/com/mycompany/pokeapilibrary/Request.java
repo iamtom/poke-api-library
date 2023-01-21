@@ -81,7 +81,7 @@ public class Request {
         String response = search(address);
         
         //remove everything around the count number (number of pokemon)
-        String s = response.substring(9, 12);
+        String s = response.substring(9, 13);
         int number = Integer.valueOf(s);
         //System.out.println("Total number of Pokemon: " + number);
         

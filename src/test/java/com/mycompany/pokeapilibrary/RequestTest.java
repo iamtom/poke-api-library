@@ -79,7 +79,7 @@ public class RequestTest {
     @Test
     public void testNoOfPokemon() {
         System.out.println("Running: noOfPokemon test");
-        int expResult = 905;
+        int expResult = 1008;
         int result = request.noOfPokemon();
         assertEquals(expResult, result);   
     }
