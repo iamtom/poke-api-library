@@ -6,11 +6,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class PokemonMove {
-    @SerializedName("move")
-    private NamedAPIResource moveInfo;
-    
+    private NamedAPIResource move;
     @SerializedName("version_group_details")
-    private ArrayList<MoveVersionGroupDetails> versionGroupDetails;
+    private ArrayList<PokemonMoveVersion> versionGroupDetails;
     
     private transient Random random;
     
@@ -18,16 +16,33 @@ public class PokemonMove {
         this.random = new Random();
     }
 
-    public NamedAPIResource getMoveInfo() {
-        return moveInfo;
+    public NamedAPIResource getMove() {
+        return move;
     }
 
-    public ArrayList<MoveVersionGroupDetails> getVersionGroupDetails() {
+    public void setMove(NamedAPIResource move) {
+        this.move = move;
+    }
+
+    public ArrayList<PokemonMoveVersion> getVersionGroupDetails() {
         return versionGroupDetails;
     }
-       
+
+    public void setVersionGroupDetails(ArrayList<PokemonMoveVersion> versionGroupDetails) {
+        this.versionGroupDetails = versionGroupDetails;
+    }
+
+    public Random getRandom() {
+        return random;
+    }
+
+    public void setRandom(Random random) {
+        this.random = random;
+    }
+
+    //TODO: move the below two methods out to pokemon-quiz-app
     public void removeVersionsBelowMinLevel(int minLevel) {
-        ArrayList<MoveVersionGroupDetails> tempList = new ArrayList<>();
+        ArrayList<PokemonMoveVersion> tempList = new ArrayList<>();
         
         for (int i = 0; i < this.versionGroupDetails.size(); i++) {
             int levelLearnedAt = this.versionGroupDetails.get(i).getLevelLearnedAt();
@@ -38,19 +53,21 @@ public class PokemonMove {
         this.versionGroupDetails = new ArrayList<>(tempList);
     }
     
-    public MoveVersionGroupDetails randomMoveVersionGroupDetails() {
+    public PokemonMoveVersion randomMoveVersionGroupDetails() {
         int maxVersions = this.getVersionGroupDetails().size();
         int randomVersionNo = 0;
         if (maxVersions > 1) {
             randomVersionNo = this.random.nextInt(maxVersions - 1);
         }        
-        MoveVersionGroupDetails versionDetails = this.getVersionGroupDetails().get(randomVersionNo);
+        PokemonMoveVersion versionDetails = this.getVersionGroupDetails().get(randomVersionNo);
         
         return versionDetails;
     }
-    
+
     @Override
     public String toString() {
-        return "PokemonMove{" + "move=" + moveInfo + ", versionGroupDetails=" + versionGroupDetails + '}';
-    }  
+        return "PokemonMove{" + "move=" + move + ", versionGroupDetails=" + versionGroupDetails + ", random=" + random + '}';
+    }
+    
+
 }

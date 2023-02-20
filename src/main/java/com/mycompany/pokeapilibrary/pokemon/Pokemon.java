@@ -5,63 +5,206 @@ import com.mycompany.pokeapilibrary.NamedAPIResource;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Pokemon {   
-    private ArrayList<PokemonAbilityInfo> abilities; 
-    
+public class Pokemon {
+
+    private int id;
+    private String name;
     @SerializedName("base_experience")
-    private Double baseExperience;
-    
-    private ArrayList<NamedAPIResource> forms;
-    
-    @SerializedName("game_indices")
-    private ArrayList<PokemonGameIndex> gameIndices;
-    
-    private Double height;
-    
-    @SerializedName("held_items")
-    private ArrayList<PokemonHeldItem> heldItems; 
-    
-    private String id;
-    
+    private int baseExperience;
+    private int height;
     @SerializedName("is_default")
     private Boolean isDefault;
-    
+    private int order;
+    private int weight;
+    private ArrayList<PokemonAbility> abilities;
+    private ArrayList<NamedAPIResource> forms;
+    @SerializedName("game_indices")
+    private ArrayList<VersionGameIndex> gameIndices;
+    @SerializedName("held_items")
+    private ArrayList<PokemonHeldItem> heldItems;
     @SerializedName("location_area_encounters")
     private String locationAreaEncounters;
-    
     private ArrayList<PokemonMove> moves;
-    private String name;
-    private Double order;
-    
     @SerializedName("past_types")
-    private ArrayList<PastType> pastTypes;
-    
+    private ArrayList<PokemonTypePast> pastTypes;
+    private PokemonSprites sprites;
     private NamedAPIResource species;
-    private Object sprites; //TO DO - create proper Sprites object
     private ArrayList<PokemonStat> stats;
     private ArrayList<PokemonType> types;
-    private Double weight;
-    
+
     private transient Random random;
-    
+
     public Pokemon() {
         this.random = new Random();
     }
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getBaseExperience() {
+        return baseExperience;
+    }
+
+    public void setBaseExperience(int baseExperience) {
+        this.baseExperience = baseExperience;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public Boolean getIsDefault() {
+        return isDefault;
+    }
+
+    public void setIsDefault(Boolean isDefault) {
+        this.isDefault = isDefault;
+    }
+
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public ArrayList<PokemonAbility> getAbilities() {
+        return abilities;
+    }
+
+    public void setAbilities(ArrayList<PokemonAbility> abilities) {
+        this.abilities = abilities;
+    }
+
+    public ArrayList<NamedAPIResource> getForms() {
+        return forms;
+    }
+
+    public void setForms(ArrayList<NamedAPIResource> forms) {
+        this.forms = forms;
+    }
+
+    public ArrayList<VersionGameIndex> getGameIndices() {
+        return gameIndices;
+    }
+
+    public void setGameIndices(ArrayList<VersionGameIndex> gameIndices) {
+        this.gameIndices = gameIndices;
+    }
+
+    public ArrayList<PokemonHeldItem> getHeldItems() {
+        return heldItems;
+    }
+
+    public void setHeldItems(ArrayList<PokemonHeldItem> heldItems) {
+        this.heldItems = heldItems;
+    }
+
+    public String getLocationAreaEncounters() {
+        return locationAreaEncounters;
+    }
+
+    public void setLocationAreaEncounters(String locationAreaEncounters) {
+        this.locationAreaEncounters = locationAreaEncounters;
+    }
+
+    public ArrayList<PokemonMove> getMoves() {
+        return moves;
+    }
+
+    public void setMoves(ArrayList<PokemonMove> moves) {
+        this.moves = moves;
+    }
+
+    public ArrayList<PokemonTypePast> getPastTypes() {
+        return pastTypes;
+    }
+
+    public void setPastTypes(ArrayList<PokemonTypePast> pastTypes) {
+        this.pastTypes = pastTypes;
+    }
+
+    public PokemonSprites getSprites() {
+        return sprites;
+    }
+
+    public void setSprites(PokemonSprites sprites) {
+        this.sprites = sprites;
+    }
+
+    public NamedAPIResource getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(NamedAPIResource species) {
+        this.species = species;
+    }
+
+    public ArrayList<PokemonStat> getStats() {
+        return stats;
+    }
+
+    public void setStats(ArrayList<PokemonStat> stats) {
+        this.stats = stats;
+    }
+
+    public ArrayList<PokemonType> getTypes() {
+        return types;
+    }
+
+    public void setTypes(ArrayList<PokemonType> types) {
+        this.types = types;
+    }
+
+    public Random getRandom() {
+        return random;
+    }
+
+    public void setRandom(Random random) {
+        this.random = random;
+    }
+
+    //TODO: move three below methods out to pokemon-quiz-app
     public ArrayList<PokemonMove> movesContainingMinLevel(int minLevel) {
         ArrayList<PokemonMove> movesList = this.moves;
         ArrayList<PokemonMove> filteredMoves = new ArrayList<>();
-        
+
         //this removes all moves where the move can never be learned at minLevel or higher
         //these are often "learned at" level 0 - i.e. TM or tutor moves
         //this is useful for e.g. "abc learns move at level x. It can also learn it via TM"
         int i = 0;
         while (i < movesList.size()) {
             PokemonMove move = movesList.get(i);
-            ArrayList<MoveVersionGroupDetails> versionDetails = move.getVersionGroupDetails();
-            
+            ArrayList<PokemonMoveVersion> versionDetails = move.getVersionGroupDetails();
+
             for (int j = 0; j < versionDetails.size(); j++) {
-                MoveVersionGroupDetails version = versionDetails.get(j);
+                PokemonMoveVersion version = versionDetails.get(j);
                 int levelLearnedAt = version.getLevelLearnedAt();
                 if (levelLearnedAt >= minLevel) {
                     filteredMoves.add(move);
@@ -69,10 +212,10 @@ public class Pokemon {
             }
             i++;
         }
-               
+
         return filteredMoves;
     }
-    
+
     public void removeMovesBelowLevel(int minLevel) {
         ArrayList<PokemonMove> tempList = new ArrayList<>();
         for (int i = 0; i < this.moves.size(); i++) {
@@ -85,89 +228,23 @@ public class Pokemon {
         }
         this.moves = new ArrayList<>(tempList);
     }
-    
-    public PokemonMove randomMove() {        
+
+    public PokemonMove randomMove() {
         int maxMoves = this.getMoves().size();
-        
+
         int randomMoveNo = 0;
         if (maxMoves > 1) {
             randomMoveNo = random.nextInt(maxMoves - 1);
         }
-        
-        PokemonMove move = this.getMoves().get(randomMoveNo); 
-        
+
+        PokemonMove move = this.getMoves().get(randomMoveNo);
+
         return move;
     }
 
-    public ArrayList<PokemonAbilityInfo> getAbilities() {
-        return abilities;
+    @Override
+    public String toString() {
+        return "Pokemon{" + "id=" + id + ", name=" + name + ", baseExperience=" + baseExperience + ", height=" + height + ", isDefault=" + isDefault + ", order=" + order + ", weight=" + weight + ", abilities=" + abilities + ", forms=" + forms + ", gameIndices=" + gameIndices + ", heldItems=" + heldItems + ", locationAreaEncounters=" + locationAreaEncounters + ", moves=" + moves + ", pastTypes=" + pastTypes + ", sprites=" + sprites + ", species=" + species + ", stats=" + stats + ", types=" + types + ", random=" + random + '}';
     }
 
-    public Double getBaseExperience() {
-        return baseExperience;
-    }
-
-    public ArrayList<NamedAPIResource> getForms() {
-        return forms;
-    }
-
-    public ArrayList<PokemonGameIndex> getGameIndices() {
-        return gameIndices;
-    }
-
-    public Double getHeight() {
-        return height;
-    }
-
-    public ArrayList getHeldItems() {
-        return heldItems;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public Boolean getIsDefault() {
-        return isDefault;
-    }
-
-    public String getLocationAreaEncounters() {
-        return locationAreaEncounters;
-    }
-
-    public ArrayList<PokemonMove> getMoves() {
-        return moves;
-    }
-    
-    public String getName() {
-        return name;
-    }
-
-    public Double getOrder() {
-        return order;
-    }
-
-    public ArrayList getPastTypes() {
-        return pastTypes;
-    }
-
-    public NamedAPIResource getSpecies() {
-        return species;
-    }
-
-    public Object getSprites() {
-        return sprites;
-    }
-
-    public ArrayList getStats() {
-        return stats;
-    }
-
-    public ArrayList<PokemonType> getTypes() {
-        return types;
-    }
-
-    public Double getWeight() {
-        return weight;
-    }  
 }

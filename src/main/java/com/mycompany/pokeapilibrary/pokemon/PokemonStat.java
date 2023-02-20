@@ -4,29 +4,39 @@ import com.google.gson.annotations.SerializedName;
 import com.mycompany.pokeapilibrary.NamedAPIResource;
 
 public class PokemonStat {
-    @SerializedName("base_stat")
-    private int baseStat;
-    private int effort;
-    private NamedAPIResource stat;
 
-    public int getBaseStat() {
-        return baseStat;
+    private NamedAPIResource stat;
+    @SerializedName("base_stat")
+    private int effort;
+    private int baseStat;
+
+    public NamedAPIResource getStat() {
+        return stat;
+    }
+
+    public void setStat(NamedAPIResource stat) {
+        this.stat = stat;
     }
 
     public int getEffort() {
         return effort;
     }
 
-    public NamedAPIResource getStat() {
-        return stat;
+    public void setEffort(int effort) {
+        this.effort = effort;
+    }
+
+    public int getBaseStat() {
+        return baseStat;
+    }
+
+    public void setBaseStat(int baseStat) {
+        this.baseStat = baseStat;
     }
 
     @Override
     public String toString() {
-        return "PokemonStat{" + "baseStat=" + baseStat + ", effort=" + effort + ", stat=" + stat + '}';
+        return "PokemonStat{" + "stat=" + stat + ", effort=" + effort + ", baseStat=" + baseStat + '}';
     }
-    
-    
-    
-    
+
 }
