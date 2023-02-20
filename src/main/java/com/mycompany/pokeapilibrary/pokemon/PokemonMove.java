@@ -1,13 +1,13 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
 import com.google.gson.annotations.SerializedName;
-import com.mycompany.pokeapilibrary.SimpleInfo;
+import com.mycompany.pokeapilibrary.NamedAPIResource;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class PokemonMove {
     @SerializedName("move")
-    private SimpleInfo moveInfo;
+    private NamedAPIResource moveInfo;
     
     @SerializedName("version_group_details")
     private ArrayList<MoveVersionGroupDetails> versionGroupDetails;
@@ -18,7 +18,7 @@ public class PokemonMove {
         this.random = new Random();
     }
 
-    public SimpleInfo getMoveInfo() {
+    public NamedAPIResource getMoveInfo() {
         return moveInfo;
     }
 

@@ -1,16 +1,16 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
-import com.mycompany.pokeapilibrary.SimpleInfo;
+import com.mycompany.pokeapilibrary.NamedAPIResource;
 
 public class PokemonType {
    private int slot;
-   private SimpleInfo type;
+   private NamedAPIResource type;
 
     public int getSlot() {
         return slot;
     }
 
-    public SimpleInfo getType() {
+    public NamedAPIResource getType() {
         return type;
     }
 

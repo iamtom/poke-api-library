@@ -3,7 +3,6 @@ package com.mycompany.pokeapilibrary;
 import com.mycompany.pokeapilibrary.pokemon.Pokemon;
 import com.google.gson.Gson;
 import com.mycompany.pokeapilibrary.move.Move;
-import com.mycompany.pokeapilibrary.move.PagesOfMoves;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -125,17 +124,17 @@ public class Request {
         return response;
     }
     
-    public PagesOfMoves allMoves(int offset, int limit) {
+    public NamedAPIResourceList allMoves(int offset, int limit) {
         String response = allMovesAsJson(offset, limit);
         
         Gson gson = new Gson();
-        PagesOfMoves moves = gson.fromJson(response, PagesOfMoves.class);
+        NamedAPIResourceList moves = gson.fromJson(response, NamedAPIResourceList.class);
         
         return moves;
     }
     
-    public PagesOfMoves allMoves() {
-        PagesOfMoves moves = allMoves(0, 20);
+    public NamedAPIResourceList allMoves() {
+        NamedAPIResourceList moves = allMoves(0, 20);
         return moves;
     }
     

@@ -1,18 +1,18 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
 import com.google.gson.annotations.SerializedName;
-import com.mycompany.pokeapilibrary.SimpleInfo;
+import com.mycompany.pokeapilibrary.NamedAPIResource;
 
 public class PokemonGameIndex {
     @SerializedName("game_index")
     private String gameIndex;
-    private SimpleInfo version;
+    private NamedAPIResource version;
 
     public String getGameIndex() {
         return gameIndex;
     }
 
-    public SimpleInfo getVersion() {
+    public NamedAPIResource getVersion() {
         return version;
     }
 

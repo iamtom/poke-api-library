@@ -1,6 +1,6 @@
 package com.mycompany.pokeapilibrary;
 
-public class SimpleInfo {
+public class NamedAPIResource {
     private String name;
     private String url;
 

@@ -1,16 +1,16 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
-import com.mycompany.pokeapilibrary.SimpleInfo;
+import com.mycompany.pokeapilibrary.NamedAPIResource;
 
 public class HeldItemVersionDetails {
     private String rarity;
-    private SimpleInfo version;
+    private NamedAPIResource version;
 
     public String getRarity() {
         return rarity;
     }
 
-    public SimpleInfo getVersion() {
+    public NamedAPIResource getVersion() {
         return version;
     }
 
