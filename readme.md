@@ -1,7 +1,8 @@
 # Poké API Library
 
 ## What is it?
-Code for interacting with pokeapi.co. I use this in some of my projects.
+Code for interacting with pokeapi.co. I use this in Pokémon Move Finder and 
+Pokémon Quiz App.
 
 ## Why?
 I wanted to make an application that interacted with pokeapi.co. While I
