@@ -1,4 +1,4 @@
-package com.mycompany.pokeapilibrary.pokemon;
+package com.mycompany.pokeapilibrary;
 
 import com.google.gson.annotations.SerializedName;
 import com.mycompany.pokeapilibrary.NamedAPIResource;

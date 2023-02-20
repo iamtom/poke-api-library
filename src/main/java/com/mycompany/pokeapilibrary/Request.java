@@ -117,15 +117,15 @@ public class Request {
         return move;         
     }
     
-    public String allMovesAsJson(int offset, int limit) {
+    public String allMovesListAsJson(int offset, int limit) {
         String address = "https://pokeapi.co/api/v2/move?offset=" + offset + "&limit=" + limit;
         String response = search(address);
         
         return response;
     }
     
-    public NamedAPIResourceList allMoves(int offset, int limit) {
-        String response = allMovesAsJson(offset, limit);
+    public NamedAPIResourceList allMovesList(int offset, int limit) {
+        String response = allMovesListAsJson(offset, limit);
         
         Gson gson = new Gson();
         NamedAPIResourceList moves = gson.fromJson(response, NamedAPIResourceList.class);
@@ -133,8 +133,8 @@ public class Request {
         return moves;
     }
     
-    public NamedAPIResourceList allMoves() {
-        NamedAPIResourceList moves = allMoves(0, 20);
+    public NamedAPIResourceList allMovesList() {
+        NamedAPIResourceList moves = Request.this.allMovesList(0, 20);
         return moves;
     }
     

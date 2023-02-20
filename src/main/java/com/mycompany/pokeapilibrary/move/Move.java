@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Move {
     @SerializedName("learned_by_pokemon")
     private ArrayList<NamedAPIResource> learnedByPokemon;
+    //TODO: add more properties as required
 
     public ArrayList<NamedAPIResource> learnedByPokemon() {
         return learnedByPokemon;

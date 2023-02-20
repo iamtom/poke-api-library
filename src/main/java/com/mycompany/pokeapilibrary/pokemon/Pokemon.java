@@ -1,5 +1,6 @@
 package com.mycompany.pokeapilibrary.pokemon;
 
+import com.mycompany.pokeapilibrary.VersionGameIndex;
 import com.google.gson.annotations.SerializedName;
 import com.mycompany.pokeapilibrary.NamedAPIResource;
 import java.util.ArrayList;
