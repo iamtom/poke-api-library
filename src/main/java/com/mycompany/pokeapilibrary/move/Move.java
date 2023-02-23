@@ -30,6 +30,6 @@ public class Move {
 
     @Override
     public String toString() {
-        return "Move{" + "learnedByPokemon=" + learnedByPokemon + '}';
+        return "Move{" + "name=" + name + ", learnedByPokemon=" + learnedByPokemon + '}';
     }
 }
