@@ -34,7 +34,7 @@ public class StringFormatter {
                 versionName = "Gold & Silver";
                 break;
             case "ruby-sapphire":
-                versionName = "Ruby and Sapphire";
+                versionName = "Ruby & Sapphire";
                 break;
             case "firered-leafgreen":
                 versionName = "Fire Red & Leaf Green";
