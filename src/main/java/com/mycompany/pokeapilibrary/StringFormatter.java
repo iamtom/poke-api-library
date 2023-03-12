@@ -72,6 +72,8 @@ public class StringFormatter {
             case "sword-shield":
                 versionName = "Sword & Shield";
                 break;
+            case "scarlet-violet":
+                versionName = "Scarlet & Violet";
             default:
                 break;
         }
